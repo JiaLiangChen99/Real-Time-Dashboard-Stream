@@ -1,86 +1,28 @@
 import reflex as rx
-from app.states.dashboard_state import DashboardState
-from app.components.live_chart import live_line_chart
-from app.components.data_table import live_data_table
-
-
-def action_button(
-    text: str,
-    on_click: rx.event.EventType,
-    icon: str,
-    color_class: str,
-) -> rx.Component:
-    return rx.el.button(
-        rx.icon(tag=icon, class_name="w-4 h-4 mr-2"),
-        text,
-        on_click=on_click,
-        class_name=f"flex items-center justify-center text-sm font-semibold px-4 py-2 rounded-lg border transition-colors {color_class}",
-    )
-
-
-def index() -> rx.Component:
-    return rx.el.main(
-        rx.el.div(
-            rx.el.div(
-                rx.el.div(
-                    rx.icon(
-                        tag="activity",
-                        class_name="w-6 h-6 text-indigo-500",
-                    ),
-                    rx.el.h1(
-                        "Real-Time Data Dashboard",
-                        class_name="text-xl font-bold text-gray-800",
-                    ),
-                    class_name="flex items-center gap-3",
-                ),
-                rx.el.div(
-                    action_button(
-                        rx.cond(
-                            DashboardState.is_streaming,
-                            "Stop Stream",
-                            "Start Stream",
-                        ),
-                        DashboardState.toggle_streaming,
-                        rx.cond(
-                            DashboardState.is_streaming,
-                            "square",
-                            "play",
-                        ),
-                        rx.cond(
-                            DashboardState.is_streaming,
-                            "bg-red-50 text-red-700 border-red-200 hover:bg-red-100",
-                            "bg-green-50 text-green-700 border-green-200 hover:bg-green-100",
-                        ),
-                    ),
-                    action_button(
-                        "Export CSV",
-                        DashboardState.export_data_csv,
-                        "cloud_download",
-                        "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100",
-                    ),
-                    action_button(
-                        "Export JSON",
-                        DashboardState.export_data_json,
-                        "file-code",
-                        "bg-gray-50 text-gray-700 border-gray-200 hover:bg-gray-100",
-                    ),
-                    class_name="flex items-center space-x-3",
-                ),
-                class_name="sticky top-0 left-0 w-full py-3 px-6 flex items-center justify-between border-b border-gray-200 bg-white/70 backdrop-blur-md z-50",
-            ),
-            rx.el.div(
-                live_line_chart(),
-                live_data_table(),
-                class_name="grid grid-cols-1 lg:grid-cols-3 p-4 sm:p-6 h-full gap-4 sm:gap-6",
-            ),
-            class_name="w-full h-full flex flex-col",
-        ),
-        class_name="min-h-screen w-full flex bg-gray-50 font-['Inter'] **:border-gray-200",
-    )
-
+from app.pages.index import index
+from app.pages.products import products
+from app.pages.news import news
+from app.pages.contact import contact
+from app.pages.product_detail import product_detail
+from app.pages.our_story import our_story
+from app.pages.faq import faq
+from app.pages.news_article import news_article
+from app.states.article_state import ArticleState
+from app.admin.pages.login import login_page
+from app.admin.pages.dashboard import dashboard_page
+from app.admin.states.auth_state import AuthState
+from app.admin.states.admin_dashboard_state import (
+    AdminDashboardState,
+)
+from app.admin.states.edit_article_state import (
+    EditArticleState,
+)
+from app.admin.states.asset_state import AssetState
+from app.admin.pages.edit_article import edit_article_page
 
 app = rx.App(
     theme=rx.theme(appearance="light"),
+    stylesheets=["/home.css"],
     head_components=[
         rx.el.link(
             rel="preconnect",
@@ -92,9 +34,41 @@ app = rx.App(
             crossorigin="",
         ),
         rx.el.link(
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap",
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap",
             rel="stylesheet",
         ),
     ],
 )
-app.add_page(index, title="Real-Time Dashboard")
+
+
+
+app.add_page(index, route="/")
+app.add_page(products, route="/products")
+app.add_page(product_detail, route="/products/[product_id]")
+app.add_page(news, route="/news")
+app.add_page(
+    news_article,
+    route="/news/[article_id]",
+    on_load=ArticleState.get_article,
+)
+app.add_page(contact, route="/contact")
+app.add_page(our_story, route="/our-story")
+app.add_page(faq, route="/faq")
+app.add_page(login_page, route="/admin/login")
+app.add_page(
+    dashboard_page,
+    route="/admin/dashboard",
+    on_load=[
+        AdminDashboardState.load_news,
+        AuthState.check_session,
+    ],
+)
+app.add_page(
+    edit_article_page,
+    route="/admin/edit-article/[article_id]",
+    on_load=[
+        EditArticleState.get_article,
+        AssetState.load_assets,
+        AuthState.check_session,
+    ],
+)
