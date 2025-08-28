@@ -1,5 +1,5 @@
 import reflex as rx
-from SIMPTECH.states.state import State
+from app.states.state import State
 
 
 def navbar_link(text: str, url: str) -> rx.Component:

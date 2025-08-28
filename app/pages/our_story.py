@@ -162,8 +162,8 @@ def story_content() -> rx.Component:
 
 
 def our_story() -> rx.Component:
-    from SIMPTECH.components.navbar import navbar
-    from SIMPTECH.components.footer import footer
+    from app.components.navbar import navbar
+    from app.components.footer import footer
 
     return rx.el.div(
         navbar(),

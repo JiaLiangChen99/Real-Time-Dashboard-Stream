@@ -1,5 +1,5 @@
 import reflex as rx
-from SIMPTECH.components.page_layout import page_layout
+from app.components.page_layout import page_layout
 
 
 def contact() -> rx.Component:

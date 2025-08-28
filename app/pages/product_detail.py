@@ -1,6 +1,6 @@
 import reflex as rx
-from SIMPTECH.components.page_layout import page_layout
-from SIMPTECH.states.state import State
+from app.components.page_layout import page_layout
+from app.states.state import State
 
 
 def product_detail() -> rx.Component:

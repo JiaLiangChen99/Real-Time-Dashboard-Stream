@@ -1,6 +1,6 @@
 import reflex as rx
-from SIMPTECH.states.article_state import Article, ArticleState
-from SIMPTECH.states.news_state import NewsState
+from app.states.article_state import Article, ArticleState
+from app.states.news_state import NewsState
 
 
 class EditArticleState(rx.State):

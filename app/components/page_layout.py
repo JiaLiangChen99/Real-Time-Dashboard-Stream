@@ -1,6 +1,6 @@
 import reflex as rx
-from SIMPTECH.components.navbar import navbar
-from SIMPTECH.components.footer import footer
+from app.components.navbar import navbar
+from app.components.footer import footer
 
 
 def page_layout(

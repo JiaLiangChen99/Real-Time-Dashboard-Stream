@@ -1,9 +1,9 @@
 import reflex as rx
-from SIMPTECH.admin.states.auth_state import AuthState
-from SIMPTECH.admin.states.admin_dashboard_state import (
+from app.admin.states.auth_state import AuthState
+from app.admin.states.admin_dashboard_state import (
     AdminDashboardState,
 )
-from SIMPTECH.states.news_state import NewsArticle
+from app.states.news_state import NewsArticle
 
 
 def admin_sidebar() -> rx.Component:

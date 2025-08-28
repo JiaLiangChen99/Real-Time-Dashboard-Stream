@@ -1,6 +1,6 @@
 import reflex as rx
-from SIMPTECH.components.page_layout import page_layout
-from SIMPTECH.states.faq_state import FAQState, FAQItem
+from app.components.page_layout import page_layout
+from app.states.faq_state import FAQState, FAQItem
 
 
 def faq_header() -> rx.Component:
