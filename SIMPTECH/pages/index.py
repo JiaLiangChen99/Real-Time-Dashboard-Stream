@@ -1,7 +1,7 @@
 import reflex as rx
-from app.components.navbar import navbar
-from app.components.footer import footer
-from app.states.state import State, Feature
+from SIMPTECH.components.navbar import navbar
+from SIMPTECH.components.footer import footer
+from SIMPTECH.states.state import State, Feature
 
 
 def feature_card(feature: Feature) -> rx.Component:

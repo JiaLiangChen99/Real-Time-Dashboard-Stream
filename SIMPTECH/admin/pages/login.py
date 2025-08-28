@@ -1,5 +1,5 @@
 import reflex as rx
-from app.admin.states.auth_state import AuthState
+from SIMPTECH.admin.states.auth_state import AuthState
 
 
 def login_page() -> rx.Component:

@@ -1,5 +1,5 @@
 import reflex as rx
-from app.states.state import State
+from SIMPTECH.states.state import State
 
 
 def navbar_link(text: str, url: str) -> rx.Component:
@@ -33,12 +33,6 @@ def help_dropdown() -> rx.Component:
         rx.cond(
             State.show_help_menu,
             rx.el.div(
-                rx.el.a(
-                    "Contact Us",
-                    href="/contact",
-                    class_name="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 rounded-md",
-                    on_click=State.toggle_help_menu,
-                ),
                 rx.el.a(
                     "Our Story",
                     href="/our-story",
@@ -99,9 +93,6 @@ def navbar() -> rx.Component:
                 mobile_navbar_link("Home", "/"),
                 mobile_navbar_link("Products", "/products"),
                 mobile_navbar_link("News", "/news"),
-                mobile_navbar_link(
-                    "Contact Us", "/contact"
-                ),
                 mobile_navbar_link(
                     "Our Story", "/our-story"
                 ),

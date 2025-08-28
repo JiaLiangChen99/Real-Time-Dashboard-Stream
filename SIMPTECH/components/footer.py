@@ -47,9 +47,6 @@ def footer() -> rx.Component:
                         ),
                         rx.el.div(
                             footer_link(
-                                "Contact Us", "/contact"
-                            ),
-                            footer_link(
                                 "Our Story", "/our-story"
                             ),
                             footer_link("FAQ", "/faq"),
@@ -58,10 +55,6 @@ def footer() -> rx.Component:
                         class_name="w-1/2 sm:w-1/4 md:w-1/4 mb-8 sm:mb-0",
                     ),
                     rx.el.div(
-                        rx.el.h3(
-                            "Contact Us",
-                            class_name="text-lg font-semibold text-white mb-4",
-                        ),
                         rx.el.div(
                             rx.el.p(
                                 "123 Tech Avenue, New York, NY 10001, USA",
@@ -85,7 +78,7 @@ def footer() -> rx.Component:
             ),
             rx.el.div(
                 rx.el.p(
-                    "© 2024 Simptech. All Rights Reserved.",
+                    "© 2025 Simptech. All Rights Reserved.",
                     class_name="text-sm text-gray-500",
                 ),
                 rx.el.div(

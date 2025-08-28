@@ -1,6 +1,6 @@
 import reflex as rx
-from app.components.page_layout import page_layout
-from app.states.news_state import NewsState, NewsArticle
+from SIMPTECH.components.page_layout import page_layout
+from SIMPTECH.states.news_state import NewsState, NewsArticle
 
 
 def news_card(article: NewsArticle) -> rx.Component:

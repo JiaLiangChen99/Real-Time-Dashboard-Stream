@@ -1,24 +1,24 @@
 import reflex as rx
-from app.pages.index import index
-from app.pages.products import products
-from app.pages.news import news
-from app.pages.contact import contact
-from app.pages.product_detail import product_detail
-from app.pages.our_story import our_story
-from app.pages.faq import faq
-from app.pages.news_article import news_article
-from app.states.article_state import ArticleState
-from app.admin.pages.login import login_page
-from app.admin.pages.dashboard import dashboard_page
-from app.admin.states.auth_state import AuthState
-from app.admin.states.admin_dashboard_state import (
+from SIMPTECH.pages.index import index
+from SIMPTECH.pages.products import products
+from SIMPTECH.pages.news import news
+from SIMPTECH.pages.contact import contact
+from SIMPTECH.pages.product_detail import product_detail
+from SIMPTECH.pages.our_story import our_story
+from SIMPTECH.pages.faq import faq
+from SIMPTECH.pages.news_article import news_article
+from SIMPTECH.states.article_state import ArticleState
+from SIMPTECH.admin.pages.login import login_page
+from SIMPTECH.admin.pages.dashboard import dashboard_page
+from SIMPTECH.admin.states.auth_state import AuthState
+from SIMPTECH.admin.states.admin_dashboard_state import (
     AdminDashboardState,
 )
-from app.admin.states.edit_article_state import (
+from SIMPTECH.admin.states.edit_article_state import (
     EditArticleState,
 )
-from app.admin.states.asset_state import AssetState
-from app.admin.pages.edit_article import edit_article_page
+from SIMPTECH.admin.states.asset_state import AssetState
+from SIMPTECH.admin.pages.edit_article import edit_article_page
 
 app = rx.App(
     theme=rx.theme(appearance="light"),
@@ -51,7 +51,6 @@ app.add_page(
     route="/news/[article_id]",
     on_load=ArticleState.get_article,
 )
-app.add_page(contact, route="/contact")
 app.add_page(our_story, route="/our-story")
 app.add_page(faq, route="/faq")
 app.add_page(login_page, route="/admin/login")

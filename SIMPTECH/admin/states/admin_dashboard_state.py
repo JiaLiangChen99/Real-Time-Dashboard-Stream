@@ -1,5 +1,5 @@
 import reflex as rx
-from app.states.news_state import NewsState, NewsArticle
+from SIMPTECH.states.news_state import NewsState, NewsArticle
 
 
 class AdminDashboardState(rx.State):

@@ -3,6 +3,7 @@ from typing import TypedDict
 
 
 class Product(TypedDict):
+    img_url: str
     product_id: str
     name: str
     description: str
@@ -62,40 +63,50 @@ class State(rx.State):
     products: list[Product] = [
         {
             "product_id": "item-001",
-            "name": "Quantum Processor",
-            "description": "Next-gen computing power.",
+            "name": "Simptech Smart Luggage",
+            "description": "Travel with confidence and convenience. Simptech Smart Luggage is equipped with a built-in power bank (USB/USB-C), global GPS tracker, anti-loss alarm, and a smart scale to prevent overweight surprises. Designed for modern travelers who value both technology and simplicity.",
             "price": 2999.99,
+            "img_url": "/black_suitcase_features.png"
         },
         {
             "product_id": "item-002",
-            "name": "Holographic Display",
-            "description": "Experience visuals in 3D.",
+            "name": "Simptech Smart Backpacks & Commuter Bags",
+            "description": "Engineered for professionals and tech enthusiasts on the go. These backpacks feature integrated charging systems, cable management, anti-theft locks, and RFID-blocking pockets to protect sensitive information. Crafted with water-resistant, scratch-resistant Codura fabric, they are built for durability and security.",
             "price": 1499.5,
+            "img_url": "/smartbackpag.png"
         },
         {
             "product_id": "item-003",
-            "name": "Cybernetic Arm",
-            "description": "Advanced prosthetic limb.",
+            "name": "Simptech Modular Multi-Functional Bags",
+            "description": "One bag, endless possibilities. With magnetic quick-release buckles, detachable inner compartments, and customizable dividers, you can easily adapt your bag for business, leisure, or short trips. Simptech Modular Bags are designed to fit seamlessly into every lifestyle.",
             "price": 7500.0,
+            "img_url": "/partition_tech_organizer.png"
         },
+        # {
+        #     "product_id": "item-004",
+        #     "name": "Simptech High-Tech Accessories & Organizers",
+        #     "description": "Stay organized, stay ready. From anti-bacterial electronic organizers and cable storage cases to smart compression bags for clothing, Simptech accessories bring technology and functionality together for a simplified travel experience.",
+        #     "price": 7500.0,
+        #     "img_url": "/partition_tech_organizer.png"
+        # },
     ]
     index_products: list[IndexProduct] = [
         {
-            "name": "Smart Carry-On",
+            "name": "Smart Suitcase",
             "image_url": "/black_suitcase_features.png",
         },
         {
-            "name": "Tech Backpack",
-            "image_url": "/white_suitcase_features.png",
+            "name": "Smart Backpack",
+            "image_url": "/smartbackpag.png",
         },
         {
-            "name": "Accessory Case",
+            "name": "Multifunctional bag",
             "image_url": "/partition_tech_organizer.png",
         },
-        {
-            "name": "Smart Luggage",
-            "image_url": "/white_suitcase_features.png",
-        },
+        # {
+        #     "name": "Smart storage box",
+        #     "image_url": "/partition_tech_organizer.png",
+        # },
     ]
     testimonials: list[Testimonial] = [
         {
@@ -133,7 +144,7 @@ class State(rx.State):
             "background_image": "/suitcase_travel_person.png",
         },
         "showcase": {
-            "image_url": "/suitcase_travel_person.png",
+            "image_url": "/white_suitcase_features.png",
             "title": "EXPLORE THE OUTDOORS LIKE NEVER BEFORE WITH OUR SIGNATURE SMART LUGGAGE!",
             "subtitle": "Finally, stylish, durable smart luggage with the comfort and features you need for tough trails, easy walks - and every adventure in between!",
             "button_text": "VIEW ALL SMART LUGGAGE",
